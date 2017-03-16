@@ -1,0 +1,9 @@
+cmd: "./build.sh"
+name: "LaTeX build"
+sh: false,
+cwd: "{FILE_ACTIVE_PATH}"
+env:
+  OUTPUTDIR: "{PROJECT_PATH}/build"
+targets:
+  buildCheck:
+      cmd: "./build-check.sh"
