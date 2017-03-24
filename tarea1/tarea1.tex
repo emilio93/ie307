@@ -1,0 +1,96 @@
+% Emilio Rojas 2017
+\documentclass{article}
+
+\input{../shared/packages.tex}
+\usetikzlibrary{babel}
+\begin{document}
+
+  \section*{Enunciado}
+  Una esfera de radio R  que tiene una densidad volumétrica de carga $\rho_V$
+  tienee un hueco esférico como se muestra en la siguiente figura. Demuestre que
+  el campo eléctrico $\textbf{E}$ en un punto cualquiera es:
+  \begin{equation*}
+    \textbf{E} = \frac{\rho_V}{6 \epsilon_0} R \phantom{\cdot} \textbf{a}_x
+  \end{equation*}
+
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      % PLANO
+      \draw [step=1.0, help lines] (-2.3,-2.3) grid (2.3, 2.3);
+      \draw [->] (-2.3, 0) -- (2.3, 0) node [below] {$x$};
+      \draw [->] (0, -2.3) -- (0, 2.3) node [right] {$y$};
+      \draw (0,0) node [below left] {O};
+
+      % Esfera
+      \draw [blue, thick](0, 0) circle (2cm);
+      \draw [blue, thick](1, 0) circle (1cm);
+
+      % Puntos y Rectas
+      \draw [->] (0, 0) -- node [above] {R} (160:2cm);
+      \draw [very thick] (1.2, 0.4) circle (0.02cm) node (p) [above] {P};
+      \draw (1.2, 0.4) -- (0,0);
+      \draw (1.2, 0.4) -- (1.2,0);
+
+      % Superficie Gaussiana
+      % \draw [blue, thick, dotted](0, 0) circle (1.265cm);
+    \end{tikzpicture}
+  \end{figure}
+
+  \begin{equation}
+    Q = \int_{VOL} \rho_V dV = \oint_S \textbf{D}_S d\textbf{S}
+  \end{equation}
+
+  \begin{equation}
+    \textbf{E} = \frac{Q}{4\pi\epsilon_0R^2}\textbf{a}_R
+  \end{equation}
+  \begin{equation}
+    \textbf{D} = \epsilon_0 \textbf{E}
+  \end{equation}
+
+  \begin{equation*}
+    \tag{Volumen de la esfera grande}
+    (x)^2+(y)^2+(z)^2 \leq (R)^2
+  \end{equation*}
+  \begin{equation*}
+    r \leq R
+  \end{equation*}
+  % \begin{align*}
+  %   \left(r \sin(\theta) \cos(\phi)\right)^2 +
+  %   \left(r\sin(\theta)\sin(\phi)\right)^2 +
+  %   \left(r\cos(\theta)\right)^2 \leq R^2 \\
+  %   r^2 \sin^2(\theta) \cos^2(\phi)+ r^2\sin^2(\theta)\sin^2(\phi) +r^2\cos^2(\theta) \leq R^2 \\
+  %   r \leq R \\
+  % \end{align*}
+
+
+  \begin{equation*}
+    \tag{Volumen de la esfera pequeña}
+    \left(x-\left(\frac{R}{2}\right)\right)^2+(y)^2+(z)^2=\left(\frac{R}{2}\right)^2
+  \end{equation*}
+  \begin{align*}
+    \left(r \sin{\theta} \cos{\phi} - \left(\frac{R}{2}\right) \right)^2+(r\sin{\theta}\sin{\phi})^2+(r\cos{\theta})^2 \leq \left(\frac{R}{2}\right)^2 \\
+    r^2 \sin^2(\theta) \cos^2(\phi) - 2 r \sin(\theta) \cos(\phi) \left(\frac{R}{2}\right) + \left(\frac{R}{2}\right)^2 + r^2\sin^2{\theta}\sin^2{\phi}+r^2\cos^2{\theta} \leq \left(\frac{R}{2}\right)^2 \\
+    r^2 - r\phantom{\cdot}R\sin(\theta) \cos(\phi) + \left(\frac{R}{2}\right)^2 \leq \left(\frac{R}{2}\right)^2 \\
+    r^2 - r\phantom{\cdot}R \sin(\theta) \cos(\phi) \leq 0 \\
+    r \csc(\theta) \sec(\phi) \leq R \\
+  \end{align*}
+
+
+  \tdplotsetmaincoords{70}{135}
+
+  \begin{tikzpicture}[scale=2,tdplot_main_coords,line join=bevel,fill opacity=.4]
+    \pgfsetlinewidth{.1pt}
+    \tdplotsphericalsurfaceplot{128}{128}
+    {2}{black}{blue!80!black}
+
+    % \tdplotsphericalsurfaceplot{9}{9}
+    % {2*abs(sin(\tdplottheta)*cos(\tdplotphi))}{black}{red!80!black}
+
+
+    {\draw[color=black,thick,->] (0,0,0) -- (3,0,0) node [anchor=north east] {$x$};}
+    {\draw[color=black,thick,->] (0,0,0) -- (0,3,0) node [anchor=north west] {$y$};}
+    {\draw[color=black,thick,->] (0,0,0) -- (0,0,3) node [anchor=south] {$z$};}
+  \end{tikzpicture}
+
+\end{document}
