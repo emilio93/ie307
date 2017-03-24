@@ -4,8 +4,6 @@ sh: false,
 cwd: "{FILE_ACTIVE_PATH}"
 env:
   OUTPUTDIR: "{PROJECT_PATH}/build"
-errorMatch:
-  - ^l\.[0-9]{2}$
 targets:
   buildCheck:
       cmd: "./build-check.sh"

@@ -1,0 +1,87 @@
+% Emilio Rojas 2017
+
+\documentclass[fontsize=8pt]{scrartcl}
+
+\input{../shared/packages.tex}
+\input{../shared/commands.tex}
+
+\geometry{
+  margin=.7cm,
+  landscape,
+  legalpaper
+}
+\allowdisplaybreaks
+\setlength\columnsep{20pt}
+\begin{document}
+  \begin{multicols}{3}
+
+    \section*{Análisis Vectorial}
+
+      \begin{equation*}
+        \tag{magnitud}
+        \left|\vec{B}\right| = \sqrt{B_X^2 + B_Y^2 + B_Z^2}
+      \end{equation*}
+
+      \begin{equation*}
+        \tag{dirección}
+        \vec{a}_B = \frac{\vec{B}}{\sqrt{B_X^2 + B_Y^2 + B_Z^2}} = \frac{\vec{B}}{\left|\vec{B}\right|}
+      \end{equation*}
+
+      \begin{equation*}
+        \tag{prod. punto}
+        \vec{A} \cdot \vec{B} = \left|\vec{A}\right| \left|\vec{B}\right| \cos(\theta_{AB})
+      \end{equation*}
+
+      \begin{equation*}
+        \tag{prod. punto}
+        \vec{A} \cdot \vec{B} = A_X B_X + A_Y B_Y + A_Z B_Z
+      \end{equation*}
+
+      \begin{equation*}
+        \tag{prod. cruz}
+        \vec{A} \times \vec{B} = \vec{a}_N \left|\vec{A}\right| \left|\vec{B}\right| \sen(\theta_{AB})
+      \end{equation*}
+
+
+      \begin{table}[H]
+        \begin{tabular}{|c|}
+          \hline \\
+          $\vec{a}_x$\\
+          $\vec{a}_y$\\
+          $\vec{a}_z$\\\hline
+        \end{tabular}
+        \begin{tabular}{| c c c |}
+          \hline
+          $\vec{a}_\rho$ & $\vec{a}_\phi$  & $\vec{a}_z$ \\ \hline
+          $\cos(\phi)$   & $-\sen(\phi)$   & $0$         \\
+          $\sen(\phi)$   & $\cos(\phi)$    & $0$         \\
+          $0$            & $0$             & $1$         \\ \hline
+        \end{tabular}
+        \begin{tabular}{| c c c |}
+          \hline
+          $\vec{a}_r$ & $\vec{a}_\theta$  & $\vec{a}_\phi$ \\ \hline
+          $\sen(\theta)\cos(\phi)$ & $\cos(\theta)\cos(\phi)$ & $-\sen(\phi)$         \\
+          $\sen(\theta)\sen(\phi)$ & $\cos(\theta)\sen(\phi)$  & $\cos(\phi)$         \\
+          $\cos(\theta)$           & $-\sen(\theta)$             & $0$         \\ \hline
+        \end{tabular}
+      \end{table}
+
+    \section*{Ley de Coulomb}
+
+    \begin{equation*}
+      \tag{permitividad del espacio}
+      \epsilon_0 = 8.854 \times 10^{-12} = \frac{1}{36\pi} 10^{-9} \text{F}/\text{m}
+    \end{equation*}
+
+    \begin{equation*}
+      \tag{fuerza eléctrica}
+      \vec{F} = \frac{Q_1 Q_2}{4\pi\epsilon_0R_{12}^2} \vec{a}_{21} = -\frac{Q_1 Q_2}{4\pi\epsilon_0R_{12}^2} \vec{a}_{21}
+    \end{equation*}
+
+    \section*{Densidad de Flujo Eléctrico}
+
+    \section*{Energía y Potencial}
+
+    \section*{Corriente y Conductores}
+  \end{multicols}
+\end{document}
